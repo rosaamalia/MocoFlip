@@ -1,14 +1,14 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 
-function HomePage() {
+function SearchPage() {
     return (
         <Container>
             <div>
-                <h1>Home Page</h1>
+                <h1>Hasil Pencarian</h1>
             </div>
-        </Container>
+        </Container>   
     )
 }
 
-export default HomePage;
+export default SearchPage;

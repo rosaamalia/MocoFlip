@@ -1,14 +1,14 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 
-function HomePage() {
+function BookmarkPage() {
     return (
         <Container>
             <div>
-                <h1>Home Page</h1>
+                <h1>Bookmark</h1>
             </div>
-        </Container>
+        </Container>   
     )
 }
 
-export default HomePage;
+export default BookmarkPage;
