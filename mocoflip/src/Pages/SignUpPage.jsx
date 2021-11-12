@@ -1,14 +1,14 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 
-function HomePage() {
+function SignUpPage() {
     return (
         <Container>
             <div>
-                <h1>Home Page</h1>
+                <h1>Sign Up</h1>
             </div>
-        </Container>
+        </Container>   
     )
 }
 
-export default HomePage;
+export default SignUpPage;
