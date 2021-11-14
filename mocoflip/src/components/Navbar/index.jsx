@@ -10,13 +10,17 @@ import {Nav,
         NavBtn,
         NavBtnLink,
         } from './NavbarElements';
+import logo from '../../images/logo.png';
 
 const Navbar = ({ toggle }) => {
     return (
         <div>
             <Nav>
                 <NavbarContainer>
-                    <NavLogo to='Home'>MocoFLip</NavLogo>
+                    <NavLogo to='Home'>
+                        <img src={ logo } style={{ width: 60, borderRadius: 5}}/>
+                        <p style={{ marginLeft: 10, marginBottom: 0 }}>MocoFlip</p>
+                    </NavLogo>
                     <MobileIcon onClick={toggle}>
                         <FaBars />
                     </MobileIcon>

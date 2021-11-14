@@ -1,18 +1,11 @@
-import React from "react";
 import MainRouter from "./routers/MainRouter";
-import { BrowserRouter as Router } from 'react-router-dom';
-import HomePage from "./Pages/HomePage";
 
-
-
-
-function App(){
-    return (
-        <Router>
-            <MainRouter />
-            <HomePage />
-        </Router>
-    ); 
+function App() {
+  return (
+    <div>
+        <MainRouter/>
+    </div>
+  );
 }
 
 export default App;
