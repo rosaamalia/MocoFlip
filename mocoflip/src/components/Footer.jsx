@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import logo from '../images/logo.png';
 
 export const FooterContainer = styled.div`
-    background-color: #362565;
+    background-color: #000000;
     display: flex;
     justify-content: center;
     align-items: center;
