@@ -1,13 +1,16 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+// import FormTestimoni from "../components/form-testimoni";
+import { Container} from "react-bootstrap";
+import TestimoniNew from "../components/testimoninew";
+
 
 function TestimoniPage() {
     return (
-        <Container>
-            <div>
-                <h1>Testimoni</h1>
-            </div>
-        </Container>   
+        <Container fluid style={{
+            backgroundColor: '#1B232E'
+          }} className="py-2 px-2">
+            <TestimoniNew/>
+        </Container>
     )
 }
 

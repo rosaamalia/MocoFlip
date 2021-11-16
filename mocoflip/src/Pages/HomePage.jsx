@@ -1,13 +1,19 @@
+
+// import LogoImg from '../images/MocoFLip_adobespark.png';
+// import NavbarComp from "../components/NavbarComp";
+// import { Container } from "react-bootstrap";
+// import background from "../images/bgHomePage.png";
 import React from "react";
+// import HeroSection from "../components/HeroSection";
 import './css/style.css';
 import background from "../images/bgHomePage.png";
 import {CardGroup, 
         Card, 
         CardImg, 
-        CardBody, 
-        CardTitle,
-        ListGroup,
-        ListGroupItem,
+        // CardBody, 
+        // CardTitle,
+        // ListGroup,
+        // ListGroupItem,
 } from "reactstrap";
 
 const HomePage = () => {
@@ -23,7 +29,7 @@ const HomePage = () => {
                         <p className="mb-4 badge text-wrap">
                         Enhance your audience experience by adding a realistic page flip effect to your PDF documents!
                         </p>
-                        <a href="" className="btn btn-success">Get FLip</a>
+                        <a href="footer.jsx" className="btn btn-success">Get FLip</a>
                     </div>
                 </div>
             </div>
