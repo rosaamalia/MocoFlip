@@ -3,6 +3,7 @@ import { FaStar } from "react-icons/fa";
 import { Container, Radio, Rating } from "../style/ratingstyle";
 const Rate = () => {
 const [rate, setRate] = useState(0);
+
 return (
 	<Container>
 	{[...Array(5)].map((item, index) => {
