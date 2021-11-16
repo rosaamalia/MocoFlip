@@ -11,7 +11,6 @@ import SearchPage from "../Pages/SearchPage";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
-import HasilTestimoniPage from "../Pages/HasilTestimoniPage";
 
 function MainRouter(){
     const [isOpen, setIsOpen] = useState(false)
@@ -31,7 +30,6 @@ function MainRouter(){
                 <Route path="/list" component={BookListPage} exact/>
                 <Route path="/bookmark" component={BookmarkPage} exact/>
                 <Route path="/testimoni" component={TestimoniPage} exact/>
-                <Route path="/hasiltestimoni" component={HasilTestimoniPage} exact/>
                 <Route path="/search" component={SearchPage} exact/>
             </Switch>
             <Footer />
