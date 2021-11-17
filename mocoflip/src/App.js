@@ -1,13 +1,12 @@
 import MainRouter from "./routers/MainRouter";
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap';
+import BookListProvider from "./components/context/listbooks-context";
 
-function App() {
-  return (
-    <div>
-        <MainRouter/>
-    </div>
-  );
+function App(){
+    return (
+    <BookListProvider>
+       <MainRouter />;
+    </BookListProvider>
+    )
 }
 
 export default App;

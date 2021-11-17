@@ -16,7 +16,8 @@ import {CardGroup,
         // ListGroupItem,
 } from "reactstrap";
 
-const HomePage = () => {
+
+function HomePage() {
     return (
         <div className="container-fluid">
             {/* Jumbotron */}

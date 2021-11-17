@@ -1,12 +1,21 @@
-import React from "react";
-import { Container } from "react-bootstrap";
+import React, {useContext, useEffect, useState} from "react";
+import CardBookList from "../components/CardBookList"
+import { Container, Row, Card, Button} from "react-bootstrap";
+import FilterCategory from "../components/FilterCategory";
+import background from "../images/Lakeside.png"
 
 function BookListPage() {
+
+
     return (
-        <Container>
-            <div>
-                <h1>Book List</h1>
+        <Container className="align-items-center">
+            <div style={{background: `url{${background}}`}}>
+            <Row>
+                <FilterCategory/>
+                <CardBookList/> 
+            </Row>
             </div>
+            
         </Container>   
     )
 }

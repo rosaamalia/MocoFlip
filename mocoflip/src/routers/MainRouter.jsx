@@ -8,9 +8,6 @@ import BookListPage from "../Pages/BookListPage";
 import BookmarkPage from "../Pages/BookmarkPage";
 import TestimoniPage from "../Pages/TestimoniPage";
 import SearchPage from "../Pages/SearchPage";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import Sidebar from "../components/Sidebar";
 
 function MainRouter(){
     const [isOpen, setIsOpen] = useState(false)
