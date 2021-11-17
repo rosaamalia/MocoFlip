@@ -26,6 +26,7 @@ function SignUpPage() {
             localStorage.setItem("email", JSON.stringify(email));
             localStorage.setItem("username", JSON.stringify(username));
             localStorage.setItem("password", JSON.stringify(password));
+            // localStorage.setItem("loginstatus", JSON.stringify(true));
 
             window.alert('Pendaftaran berhasil! Silahkan Log In dengan akun yang sudah didaftarkan.');
             window.location='/login';

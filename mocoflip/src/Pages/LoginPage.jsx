@@ -19,10 +19,11 @@ function LoginPage() {
         } else if(email == emailRegistered && password !== passwordRegistered) {
             alert('Password yang dimasukkan salah!');
         } else {
-            window.location='/list';
+            localStorage.setItem("loginstatus", JSON.stringify(true));
+            window.location='/';
         }
     }
-    
+
     return (
         <div className="d-flex align-items-center min-vh-100" style ={{ backgroundColor: '#1B232E'}}>
         <Container fluid>

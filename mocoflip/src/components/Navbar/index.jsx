@@ -9,11 +9,21 @@ import {Nav,
         NavLinks,
         NavBtn,
         NavBtnLink,
+        Button
         } from './NavbarElements';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png';
 
 const Navbar = ({ toggle }) => {
+    let loginstatus = JSON.parse(localStorage.getItem("loginstatus"));
+    let username = JSON.parse(localStorage.getItem("username"));
+
+    function signOut(e) {
+        e.preventDefault();
+        localStorage.setItem("loginstatus", JSON.stringify(false));
+        window.location="/"
+    }
+
     return (
         <div>
             <Nav>
@@ -43,20 +53,26 @@ const Navbar = ({ toggle }) => {
                             </NavLinks>
                         </NavItem>
                         <NavItem>
-                            <NavLinks to='/'>Home</NavLinks>
+                            <NavLinks><Link to="/" style={{ textDecoration: 'none', color: 'white' }}>Home</Link></NavLinks>
                         </NavItem>
                         <NavItem>
-                            <NavLinks to='list'>Demo</NavLinks>
+                            { loginstatus == true ? <NavLinks><Link to="/list" style={{ textDecoration: 'none', color: 'white' }}>Demo</Link></NavLinks> : null}
                         </NavItem>
                         <NavItem>
-                            <NavLinks to='testimoni'>Testimoni</NavLinks>
+                            <NavLinks><Link to="/testimoni" style={{ textDecoration: 'none', color: 'white' }}>Testimoni</Link></NavLinks>
                         </NavItem>
                         <NavItem>
-                            <NavLinks to='signup'>Sign Up</NavLinks>
+                            { loginstatus == false ? <NavLinks><Link to="/signup" style={{ textDecoration: 'none', color: 'white' }}>Sign Up</Link></NavLinks> : null}
                         </NavItem>
                     </NavMenu>
                     <NavBtn>
-                        <NavBtnLink to='login'>Sign In</NavBtnLink>
+                        { loginstatus == false ?
+                            <NavBtnLink to='/login'>Sign In</NavBtnLink> :
+                            <div style={{ display: 'flex', flexDirection: 'row'}}>
+                                <p style={{ margin: 10, color: 'white'}}>Halo, {username}!</p>
+                                <Button><button onClick={signOut} style={{ background: 'none', padding: 0, border: 'none' }}>Sign Out</button></Button>
+                            </div>
+                        }
                     </NavBtn>
                 </NavbarContainer>
             </Nav>

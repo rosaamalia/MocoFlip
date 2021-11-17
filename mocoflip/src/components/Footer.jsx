@@ -20,7 +20,7 @@ function Footer(){
                 <span style={{fontSize: 18, color: 'white', paddingLeft: 10, fontWeight: 600}}>MocoFlip</span>
             </div>
             <div style={{paddingTop: 10}}>
-                <p style={{color: 'white', textAlign: 'center', margin: 0}}>Kelompok 22 - Serrum - Asek Asek Jos</p>
+                <p style={{color: 'white', textAlign: 'center', margin: 0}}>Made with love ♥ - Kelompok 22 - Serrum</p>
             </div>
         </FooterContainer>
     );
