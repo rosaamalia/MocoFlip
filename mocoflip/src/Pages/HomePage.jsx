@@ -107,8 +107,8 @@ const HomePage = () => {
                 <div className="row-cols-1">
                     <h5 className="text-center mb-5"> Suka dengan FLipBook? Kasih testimoni kamu disini yuk ! </h5>
                     <div className="button-testimoni mb-5">
-                        <a href="/">
-                        <button type="button" className="btn btn-primary">tulis testimoni</button>
+                        <a href="/testimoni">
+                        <button type="button" className="btn btn-primary">Tulis Testimoni</button>
                         </a>
                     </div>
                 </div>
