@@ -12,13 +12,12 @@ import {Nav,
         } from './NavbarElements';
 import logo from '../../images/logo.png';
 
-
 const Navbar = ({ toggle }) => {
     return (
         <div>
             <Nav>
                 <NavbarContainer>
-                    <NavLogo to='Home'>
+                    <NavLogo to='/'>
                         <img src={ logo } style={{ width: 60, borderRadius: 5}}/>
                         <p style={{ marginLeft: 10, marginBottom: 0 }}>MocoFlip</p>
                     </NavLogo>
@@ -43,20 +42,20 @@ const Navbar = ({ toggle }) => {
                             </NavLinks>
                         </NavItem>
                         <NavItem>
-                            <NavLinks to='Home'>Home</NavLinks>
+                            <NavLinks to='/'>Home</NavLinks>
                         </NavItem>
                         <NavItem>
-                            <NavLinks to='Home'>Demo</NavLinks>
+                            <NavLinks to='list'>Demo</NavLinks>
                         </NavItem>
                         <NavItem>
-                            <NavLinks to='TestimoniPage'>Testimoni</NavLinks>
+                            <NavLinks to='testimoni'>Testimoni</NavLinks>
                         </NavItem>
                         <NavItem>
                             <NavLinks to='signup'>Sign Up</NavLinks>
                         </NavItem>
                     </NavMenu>
                     <NavBtn>
-                        <NavBtnLink to='signin'>Sign In</NavBtnLink>
+                        <NavBtnLink to='login'>Sign In</NavBtnLink>
                     </NavBtn>
                 </NavbarContainer>
             </Nav>
