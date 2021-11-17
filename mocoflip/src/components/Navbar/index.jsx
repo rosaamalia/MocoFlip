@@ -10,6 +10,7 @@ import {Nav,
         NavBtn,
         NavBtnLink,
         } from './NavbarElements';
+import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png';
 
 const Navbar = ({ toggle }) => {
