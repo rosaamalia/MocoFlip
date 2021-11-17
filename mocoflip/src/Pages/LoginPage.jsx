@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import {Button, Col, Container, Form, Row, Card, CardImg} from "react-bootstrap";
 
 function LoginPage() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    function handleFormSubmit(e){
+        e.preventDefault();
+
+        let emailRegistered = JSON.parse(localStorage.getItem("email"));
+        let passwordRegistered = JSON.parse(localStorage.getItem("password"));
+
+        if(!email || !password) {
+            alert('Mohon isi form terlebih dahulu.');
+        } else if(email !== emailRegistered) {
+            alert('Email yang dimasukkan salah!');
+        } else if(email == emailRegistered && password !== passwordRegistered) {
+            alert('Password yang dimasukkan salah!');
+        } else {
+            window.location='/list';
+        }
+    }
+    
     return (
         <div className="d-flex align-items-center min-vh-100" style ={{ backgroundColor: '#1B232E'}}>
         <Container fluid>
@@ -17,16 +37,19 @@ function LoginPage() {
                         <Col className="col-md-6 d-flex align-items-center px-4">
                         <Card.Body>
                             <p className="text-md-start text-sm-center text-center fs-2 fw-bold py-0">Login to MocoFlip</p>
-                            <p className="text-sm-center text-md-start text-center">Haven't an account? <a className="fw-bold" href="/signup">Sign Up</a></p>
-                            <Form id="form_id" method="post" name="myform">
-                                <Form.Group className="mb-3">
-                                    <Form.Label controlId="email" className="form-label">Email Address</Form.Label>
-                                    <Form.Control type="email" placeholder="Enter email"></Form.Control>
+                            <p className="text-sm-center text-md-start text-center">Haven't an account? <Link className="fw-bold" to="/signup">Sign Up</Link></p>
+                            <Form onSubmit={(e) => handleFormSubmit(e)}>
+
+                                <Form.Group className="mb-3" controlId="email">
+                                    <Form.Label className="form-label">Email Address</Form.Label>
+                                    <Form.Control type="email" placeholder="Enter email" onChange={(event) => setEmail(event.target.value)} value={email} required/>
                                 </Form.Group>
-                                <Form.Group className="mb-3">
-                                    <Form.Label controlId="password" className="form-label">Password</Form.Label>
-                                    <Form.Control type="password" placeholder="Enter password"></Form.Control>
+
+                                <Form.Group className="mb-3" controlId="password">
+                                    <Form.Label className="form-label">Password</Form.Label>
+                                    <Form.Control type="password" placeholder="Enter password" onChange={(event) => setPassword(event.target.value)} value={password} required/>
                                 </Form.Group>
+
                                 <div>
                                     <div className="d-grid">
                                     <Button type="submit" className="btn btn-primary" id="btn-submit" value="Login">Sign In</Button>

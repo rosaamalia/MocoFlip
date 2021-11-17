@@ -8,20 +8,27 @@ function SignUpPage() {
     const [password, setPassword] = useState("");
     const [confirmPass, setConfirmPass] = useState("");
 
-    const [flag, setFlag] = useState(false);  
-
     function handleFormSubmit(e){
-        e.preventDeafult();
+        e.preventDefault();
 
-        if(!email || !username || !password) {
-            setFlag(true);
+        let emailRegistered = JSON.parse(localStorage.getItem("email"));
+        let usernameRegistered = JSON.parse(localStorage.getItem("username"));
+
+        if(!email || !username || !password || !confirmPass) {
+            alert('Mohon isi form terlebih dahulu.')
+        } else if(email == emailRegistered) {
+            alert('Email yang digunakan sudah terdaftar. Mohon masukkan email lain.');
+        } else if(username == usernameRegistered) {
+            alert('Username yang digunakan sudah terdaftar. Mohon masukkan username lain.');
+        }else if(password !== confirmPass){
+            alert('Konfirmasi password tidak sama.')
         } else {
-            setFlag(false);
-
             localStorage.setItem("email", JSON.stringify(email));
             localStorage.setItem("username", JSON.stringify(username));
             localStorage.setItem("password", JSON.stringify(password));
-            console.log('berhasil menyimpan');
+
+            window.alert('Pendaftaran berhasil! Silahkan Log In dengan akun yang sudah didaftarkan.');
+            window.location='/login';
         }
     }
 
@@ -40,31 +47,31 @@ function SignUpPage() {
                         <Card.Body>
                             <p className="text-md-start text-sm-center text-center fs-2 fw-bold py-0">Sign Up to MocoFlip</p>
                             <p className="text-sm-center text-md-start text-center">Already have an account? <Link to="/login">Log In</Link></p>
-                            <Form onSubmit={ handleFormSubmit }>
+                            <Form onSubmit={(e) => handleFormSubmit(e)}>
 
                                 <Form.Group className="mb-3" controlId="email">
                                     <Form.Label className="form-label">Email Address</Form.Label>
-                                    <Form.Control type="email" placeholder="Enter email" name="email" onChange={(event) => setEmail(event.target.value)} required/>
+                                    <Form.Control type="email" placeholder="Enter email" name="email" onChange={(event) => setEmail(event.target.value)} value={email} required/>
                                 </Form.Group>
 
                                 <Form.Group className="mb-3" controlId="username">
                                     <Form.Label className="form-label">Username</Form.Label>
-                                    <Form.Control type="text" placeholder="Enter username" name="username" onChange={(event) => setUsername(event.target.value)} required/>
+                                    <Form.Control type="text" placeholder="Enter username" name="username" onChange={(event) => setUsername(event.target.value)} value={username} required/>
                                 </Form.Group>
 
                                 <Form.Group className="mb-3" controlId="password">
                                     <Form.Label className="form-label">Password</Form.Label>
-                                    <Form.Control type="password" placeholder="Enter password" name="password" onChange={(event) => setPassword(event.target.value)}></Form.Control>
+                                    <Form.Control type="password" placeholder="Enter password" name="password" onChange={(event) => setPassword(event.target.value)} value={password} required/>
                                 </Form.Group>
                                 
                                 <Form.Group className="mb-3" controlId="confirm-password">
                                     <Form.Label className="form-label">Confirm Password</Form.Label>
-                                    <Form.Control type="password" placeholder="Re-type password" onChange={(event) => setConfirmPass(event.target.value)}></Form.Control>
+                                    <Form.Control type="password" placeholder="Re-type password" onChange={(event) => setConfirmPass(event.target.value)} value={confirmPass} required/>
                                 </Form.Group>
                                 
                                 <div>
                                     <div className="d-grid">
-                                    <Button type="submit" className="btn btn-primary" id="btn-submit" value="Login">Sign Up</Button>
+                                    <Button type="submit" className="btn btn-primary" id="btn-submit">Sign Up</Button>
                                     </div>
                                 </div>
                             </Form>
