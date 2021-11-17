@@ -6,9 +6,7 @@ import { BookListProvider } from './components/context/listbooks-context';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BookListProvider>
     <App />
-    </BookListProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
