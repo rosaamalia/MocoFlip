@@ -12,12 +12,16 @@ import { Button } from '../Navbar/NavbarElements';
 import { Link } from 'react-router-dom';
 
 const Sidebar = ({ isOpen, toggle }) => {
-    let loginstatus = JSON.parse(localStorage.getItem("loginstatus"));
-    let username = JSON.parse(localStorage.getItem("username"));
+    let loginstatus = JSON.parse(localStorage.getItem("loginstatus")).status;
+    let userLogIn = JSON.parse(localStorage.getItem("loginstatus")).id;
+    
+    if( userLogIn != null ) {
+        var username = JSON.parse(localStorage.getItem(userLogIn)).username;
+    }
 
     function signOut(e) {
         e.preventDefault();
-        localStorage.setItem("loginstatus", JSON.stringify(false));
+        localStorage.setItem("loginstatus", JSON.stringify({'status': false, 'id': NaN}));
         window.location="/"
     }
 

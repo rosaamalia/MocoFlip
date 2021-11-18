@@ -5,12 +5,13 @@ import { Link as LinkS } from 'react-scroll';
 export const Nav = styled.nav`
     background: #000000;
     height: 80px;
+    width: 100%;
     margin-top: -5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 1rem;
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 1;
 
@@ -83,9 +84,17 @@ export const NavLinks = styled(LinkS)`
     height: 100%;
     cursor: pointer;
 
-    &.active {
-        border-bottom: 3px solid #01bf71;
+    &:hover{
+        border-bottom: 3px solid #EC6A9D;
     }
+`;
+
+export const SearchBar = styled.div`
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    height: 100%;
 `;
 
 export const NavBtn = styled.nav`
@@ -99,7 +108,7 @@ export const NavBtn = styled.nav`
 
 export const NavBtnLink = styled(LinkR)`
     border-radius: 50px;
-    background: #01bf71;
+    background: #EC6A9D;
     white-space: nowrap;
     padding: 10px 22px;
     color: #fff;
@@ -110,7 +119,7 @@ export const NavBtnLink = styled(LinkR)`
     transition: all 0.2s ease-in-out;
     text-decoration: none;
 
-    &::hover {
+    &:hover {
         transition: all 0.2s ease-in-out;
         background: #fff;
         color:  #010606;
@@ -119,10 +128,10 @@ export const NavBtnLink = styled(LinkR)`
 
 export const Button = styled.button`
     border-radius: 50px;
-    background: #01bf71;
+    background: #EC6A9D;
     white-space: nowrap;
     padding: 10px 22px;
-    color: #fff;
+    color: white;
     font-size: 16px;
     outline: none;
     border: none;
@@ -130,7 +139,7 @@ export const Button = styled.button`
     /* transition: all 0.2s ease-in-out; */
     text-decoration: none;
 
-    &::hover {
+    &:hover {
         transition: all 0.2s ease-in-out;
         background: #fff;
         color:  #010606;

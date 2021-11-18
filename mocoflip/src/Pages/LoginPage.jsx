@@ -6,22 +6,33 @@ function LoginPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    let allLocalStorage = Object.keys(localStorage);
+    let length = allLocalStorage.length;
+
     function handleFormSubmit(e){
         e.preventDefault();
 
-        let emailRegistered = JSON.parse(localStorage.getItem("email"));
-        let passwordRegistered = JSON.parse(localStorage.getItem("password"));
-
-        if(!email || !password) {
-            alert('Mohon isi form terlebih dahulu.');
-        } else if(email !== emailRegistered) {
-            alert('Email yang dimasukkan salah!');
-        } else if(email == emailRegistered && password !== passwordRegistered) {
-            alert('Password yang dimasukkan salah!');
-        } else {
-            localStorage.setItem("loginstatus", JSON.stringify(true));
-            window.location='/';
+        for(let i =0; i<length; i++) {
+            let emailRegistered = JSON.parse(localStorage.getItem(allLocalStorage[i])).email;
+            let passwordRegistered = JSON.parse(localStorage.getItem(allLocalStorage[i])).password;
+            
+            if (email == emailRegistered && password == passwordRegistered){
+                localStorage.setItem("loginstatus", JSON.stringify({'status': true, 'id': allLocalStorage[i]}));
+                window.location='/';
+                break;
+            } else if (email != emailRegistered) {
+                if(i < length) {
+                    continue;
+                } else {
+                    alert('Email yang dimasukkan salah!');
+                    break;
+                }
+            } else if(email == emailRegistered && password !== passwordRegistered) {
+                alert('Password yang dimasukkan salah!');
+                break;
+            }
         }
+
     }
 
     return (
@@ -31,14 +42,14 @@ function LoginPage() {
                     <Row className="g-0">
                         <Col className="d-sm-none d-md-inline d-none col-md-6">
                             <CardImg className="img-fluid rounded-start"
-                                    style={{ height: 500, innerWidth: '50vw', objectFit: 'cover' }}
+                                    style={{ height: 500, innerWidth: '50vw', objectFit: 'cover', paddingLeft: 30 }}
                                     src="https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Ym9vayUyMHB1cnBsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1000&q=60">
                             </CardImg>
                         </Col>
-                        <Col className="col-md-6 d-flex align-items-center px-4">
+                        <Col className="col-md-6 d-flex align-items-center px-5">
                         <Card.Body>
-                            <p className="text-md-start text-sm-center text-center fs-2 fw-bold py-0">Login to MocoFlip</p>
-                            <p className="text-sm-center text-md-start text-center">Haven't an account? <Link className="fw-bold" to="/signup">Sign Up</Link></p>
+                            <p className="text-md-start text-sm-center text-center fs-2 fw-bold py-0 my-0">Login to MocoFlip</p>
+                            <p className="text-sm-center text-md-start text-center">Haven't an account? <Link to="/signup" style={{ textDecoration: 'none', fontWeight: 700, color: '#EC6A9D'}}>Sign Up here.</Link></p>
                             <Form onSubmit={(e) => handleFormSubmit(e)}>
 
                                 <Form.Group className="mb-3" controlId="email">
@@ -53,7 +64,7 @@ function LoginPage() {
 
                                 <div>
                                     <div className="d-grid">
-                                    <Button type="submit" className="btn btn-primary" id="btn-submit" value="Login">Sign In</Button>
+                                    <Button type="submit" className="btn btn-primary" id="btn-submit" value="Login" style={{ backgroundColor: '#BE428D', borderStyle: 'none' }}>Sign In</Button>
                                     </div>
                                 </div>
                             </Form>

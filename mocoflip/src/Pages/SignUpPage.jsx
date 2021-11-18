@@ -8,29 +8,46 @@ function SignUpPage() {
     const [password, setPassword] = useState("");
     const [confirmPass, setConfirmPass] = useState("");
 
+    // default login status
+    localStorage.setItem("loginstatus", JSON.stringify({'status': false, 'id': NaN}));
+
+    let allLocalStorage = Object.keys(localStorage);
+    let length = allLocalStorage.length;
+    let lastID = length - 2;
+
     function handleFormSubmit(e){
         e.preventDefault();
 
-        let emailRegistered = JSON.parse(localStorage.getItem("email"));
-        let usernameRegistered = JSON.parse(localStorage.getItem("username"));
-
-        if(!email || !username || !password || !confirmPass) {
-            alert('Mohon isi form terlebih dahulu.')
-        } else if(email == emailRegistered) {
-            alert('Email yang digunakan sudah terdaftar. Mohon masukkan email lain.');
-        } else if(username == usernameRegistered) {
-            alert('Username yang digunakan sudah terdaftar. Mohon masukkan username lain.');
-        }else if(password !== confirmPass){
-            alert('Konfirmasi password tidak sama.')
-        } else {
-            localStorage.setItem("email", JSON.stringify(email));
-            localStorage.setItem("username", JSON.stringify(username));
-            localStorage.setItem("password", JSON.stringify(password));
-            // localStorage.setItem("loginstatus", JSON.stringify(true));
-
-            window.alert('Pendaftaran berhasil! Silahkan Log In dengan akun yang sudah didaftarkan.');
-            window.location='/login';
+        for ( let i = 0; i<length; i++){
+            let emailRegistered = JSON.parse(localStorage.getItem(allLocalStorage[i])).email;
+            let usernameRegistered = JSON.parse(localStorage.getItem(allLocalStorage[i])).username;
+    
+            if(!email || !username || !password || !confirmPass) {
+                alert('Mohon isi form terlebih dahulu.');
+                break;
+            } else if(email == emailRegistered) {
+                alert('Email yang digunakan sudah terdaftar. Mohon masukkan email lain.');
+                break;
+            } else if(username == usernameRegistered) {
+                alert('Username yang digunakan sudah terdaftar. Mohon masukkan username lain.');
+                break;
+            }else if(password !== confirmPass){
+                alert('Konfirmasi password tidak sama.');
+                break;
+            } else if(i == length - 1){
+                if (length == 1) {
+                    localStorage.setItem(0, JSON.stringify({'email': email, 'username': username, 'password': password}));
+                } else if (length == 2) {
+                    localStorage.setItem(1, JSON.stringify({'email': email, 'username': username, 'password': password}));
+                } else {
+                    localStorage.setItem(lastID + 1, JSON.stringify({'email': email, 'username': username, 'password': password}));
+                }
+    
+                window.alert('Pendaftaran berhasil! Silahkan Log In dengan akun yang sudah didaftarkan.');
+                window.location='/login';
+            }
         }
+
     }
 
     return (
@@ -40,14 +57,14 @@ function SignUpPage() {
                     <Row className="g-0">
                         <Col className="d-sm-none d-md-inline d-none col-md-6">
                             <CardImg className="img-fluid rounded-start"
-                                    style={{ height: 500, innerWidth: '50vw', objectFit: 'cover' }}
+                                    style={{ height: 500, innerWidth: '50vw', objectFit: 'cover', paddingLeft: 30 }}
                                     src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80">
                             </CardImg>
                         </Col>
-                        <Col className="col-md-6 d-flex align-items-center px-4">
+                        <Col className="col-md-6 d-flex align-items-center px-5">
                         <Card.Body>
-                            <p className="text-md-start text-sm-center text-center fs-2 fw-bold py-0">Sign Up to MocoFlip</p>
-                            <p className="text-sm-center text-md-start text-center">Already have an account? <Link to="/login">Log In</Link></p>
+                            <p className="text-md-start text-sm-center text-center fs-2 fw-bold py-0 my-0">Sign Up to MocoFlip</p>
+                            <p className="text-sm-center text-md-start text-center">Already have an account? <Link to="/login" style={{ textDecoration: 'none', fontWeight: 700, color: '#EC6A9D'}}>Log In here.</Link></p>
                             <Form onSubmit={(e) => handleFormSubmit(e)}>
 
                                 <Form.Group className="mb-3" controlId="email">
@@ -71,8 +88,8 @@ function SignUpPage() {
                                 </Form.Group>
                                 
                                 <div>
-                                    <div className="d-grid">
-                                    <Button type="submit" className="btn btn-primary" id="btn-submit">Sign Up</Button>
+                                    <div className="d-grid mt-4">
+                                    <Button type="submit" className="btn btn-primary" id="btn-submit" style={{ backgroundColor: '#BE428D', borderStyle: 'none' }}>Sign Up</Button>
                                     </div>
                                 </div>
                             </Form>
