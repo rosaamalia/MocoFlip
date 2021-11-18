@@ -6,22 +6,33 @@ function LoginPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    let allLocalStorage = Object.keys(localStorage);
+    let length = allLocalStorage.length;
+
     function handleFormSubmit(e){
         e.preventDefault();
 
-        let emailRegistered = JSON.parse(localStorage.getItem("email"));
-        let passwordRegistered = JSON.parse(localStorage.getItem("password"));
-
-        if(!email || !password) {
-            alert('Mohon isi form terlebih dahulu.');
-        } else if(email !== emailRegistered) {
-            alert('Email yang dimasukkan salah!');
-        } else if(email == emailRegistered && password !== passwordRegistered) {
-            alert('Password yang dimasukkan salah!');
-        } else {
-            localStorage.setItem("loginstatus", JSON.stringify(true));
-            window.location='/';
+        for(let i =0; i<length; i++) {
+            let emailRegistered = JSON.parse(localStorage.getItem(allLocalStorage[i])).email;
+            let passwordRegistered = JSON.parse(localStorage.getItem(allLocalStorage[i])).password;
+            
+            if (email == emailRegistered && password == passwordRegistered){
+                localStorage.setItem("loginstatus", JSON.stringify({'status': true, 'id': allLocalStorage[i]}));
+                window.location='/';
+                break;
+            } else if (email != emailRegistered) {
+                if(i < length) {
+                    continue;
+                } else {
+                    alert('Email yang dimasukkan salah!');
+                    break;
+                }
+            } else if(email == emailRegistered && password !== passwordRegistered) {
+                alert('Password yang dimasukkan salah!');
+                break;
+            }
         }
+
     }
 
     return (

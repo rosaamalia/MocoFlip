@@ -8,29 +8,46 @@ function SignUpPage() {
     const [password, setPassword] = useState("");
     const [confirmPass, setConfirmPass] = useState("");
 
+    // default login status
+    localStorage.setItem("loginstatus", JSON.stringify({'status': false, 'id': NaN}));
+
+    let allLocalStorage = Object.keys(localStorage);
+    let length = allLocalStorage.length;
+    let lastID = length - 2;
+
     function handleFormSubmit(e){
         e.preventDefault();
 
-        let emailRegistered = JSON.parse(localStorage.getItem("email"));
-        let usernameRegistered = JSON.parse(localStorage.getItem("username"));
-
-        if(!email || !username || !password || !confirmPass) {
-            alert('Mohon isi form terlebih dahulu.')
-        } else if(email == emailRegistered) {
-            alert('Email yang digunakan sudah terdaftar. Mohon masukkan email lain.');
-        } else if(username == usernameRegistered) {
-            alert('Username yang digunakan sudah terdaftar. Mohon masukkan username lain.');
-        }else if(password !== confirmPass){
-            alert('Konfirmasi password tidak sama.')
-        } else {
-            localStorage.setItem("email", JSON.stringify(email));
-            localStorage.setItem("username", JSON.stringify(username));
-            localStorage.setItem("password", JSON.stringify(password));
-            // localStorage.setItem("loginstatus", JSON.stringify(true));
-
-            window.alert('Pendaftaran berhasil! Silahkan Log In dengan akun yang sudah didaftarkan.');
-            window.location='/login';
+        for ( let i = 0; i<length; i++){
+            let emailRegistered = JSON.parse(localStorage.getItem(allLocalStorage[i])).email;
+            let usernameRegistered = JSON.parse(localStorage.getItem(allLocalStorage[i])).username;
+    
+            if(!email || !username || !password || !confirmPass) {
+                alert('Mohon isi form terlebih dahulu.');
+                break;
+            } else if(email == emailRegistered) {
+                alert('Email yang digunakan sudah terdaftar. Mohon masukkan email lain.');
+                break;
+            } else if(username == usernameRegistered) {
+                alert('Username yang digunakan sudah terdaftar. Mohon masukkan username lain.');
+                break;
+            }else if(password !== confirmPass){
+                alert('Konfirmasi password tidak sama.');
+                break;
+            } else if(i == length - 1){
+                if (length == 1) {
+                    localStorage.setItem(0, JSON.stringify({'email': email, 'username': username, 'password': password}));
+                } else if (length == 2) {
+                    localStorage.setItem(1, JSON.stringify({'email': email, 'username': username, 'password': password}));
+                } else {
+                    localStorage.setItem(lastID + 1, JSON.stringify({'email': email, 'username': username, 'password': password}));
+                }
+    
+                window.alert('Pendaftaran berhasil! Silahkan Log In dengan akun yang sudah didaftarkan.');
+                window.location='/login';
+            }
         }
+
     }
 
     return (
