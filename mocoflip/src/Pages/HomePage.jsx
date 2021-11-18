@@ -105,11 +105,11 @@ function HomePage() {
                         </CardBody> */}
                     </Card>
                 </CardGroup>
-                <div className="row-cols-1">
-                    <h5 className="text-center mb-5"> Suka dengan FLipBook? Kasih testimoni kamu disini yuk ! </h5>
+                <div className="row-cols-1 m-5">
+                    <h5 className="text-center mb-3"> Suka dengan FLipBook? Kasih testimoni kamu disini yuk ! </h5>
                     <div className="button-testimoni mb-5">
                         <a href="/testimoni">
-                        <button type="button" className="btn btn-primary">Tulis Testimoni</button>
+                        <button type="button" className="btn btn-primary" style={{ backgroundColor: '#362565', borderStyle: 'none'}}>Tulis Testimoni</button>
                         </a>
                     </div>
                 </div>

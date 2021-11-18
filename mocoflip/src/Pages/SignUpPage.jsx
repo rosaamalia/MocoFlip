@@ -57,14 +57,14 @@ function SignUpPage() {
                     <Row className="g-0">
                         <Col className="d-sm-none d-md-inline d-none col-md-6">
                             <CardImg className="img-fluid rounded-start"
-                                    style={{ height: 500, innerWidth: '50vw', objectFit: 'cover' }}
+                                    style={{ height: 500, innerWidth: '50vw', objectFit: 'cover', paddingLeft: 30 }}
                                     src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80">
                             </CardImg>
                         </Col>
-                        <Col className="col-md-6 d-flex align-items-center px-4">
+                        <Col className="col-md-6 d-flex align-items-center px-5">
                         <Card.Body>
-                            <p className="text-md-start text-sm-center text-center fs-2 fw-bold py-0">Sign Up to MocoFlip</p>
-                            <p className="text-sm-center text-md-start text-center">Already have an account? <Link to="/login">Log In</Link></p>
+                            <p className="text-md-start text-sm-center text-center fs-2 fw-bold py-0 my-0">Sign Up to MocoFlip</p>
+                            <p className="text-sm-center text-md-start text-center">Already have an account? <Link to="/login" style={{ textDecoration: 'none', fontWeight: 700, color: '#EC6A9D'}}>Log In here.</Link></p>
                             <Form onSubmit={(e) => handleFormSubmit(e)}>
 
                                 <Form.Group className="mb-3" controlId="email">
@@ -88,8 +88,8 @@ function SignUpPage() {
                                 </Form.Group>
                                 
                                 <div>
-                                    <div className="d-grid">
-                                    <Button type="submit" className="btn btn-primary" id="btn-submit">Sign Up</Button>
+                                    <div className="d-grid mt-4">
+                                    <Button type="submit" className="btn btn-primary" id="btn-submit" style={{ backgroundColor: '#BE428D', borderStyle: 'none' }}>Sign Up</Button>
                                     </div>
                                 </div>
                             </Form>

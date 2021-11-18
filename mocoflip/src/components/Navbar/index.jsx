@@ -9,7 +9,8 @@ import {Nav,
         NavLinks,
         NavBtn,
         NavBtnLink,
-        Button
+        Button,
+        SearchBar
         } from './NavbarElements';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png';
@@ -41,7 +42,7 @@ const Navbar = ({ toggle }) => {
                     </MobileIcon>
                     <NavMenu>
                         <NavItem>
-                            <NavLinks className="d-flex justify-content-center">
+                            <SearchBar className="d-flex justify-content-center">
                                 <form action='/' method='get'>
                                     <label htmlFor='header-search'>
                                         <span className="visually-hidden align-items-center">Search Flip Books</span>
@@ -51,10 +52,11 @@ const Navbar = ({ toggle }) => {
                                         id="header-search"
                                         placeholder="Search Flip Books"
                                         name="s"
+                                        style={{ paddingInline: 15, paddingBlock: 5, borderRadius: 5}}
                                     />
                                 </form>
                                 {' '}
-                            </NavLinks>
+                            </SearchBar>
                         </NavItem>
                         <NavItem>
                             <NavLinks><Link to="/" style={{ textDecoration: 'none', color: 'white' }}>Home</Link></NavLinks>
@@ -73,12 +75,12 @@ const Navbar = ({ toggle }) => {
                         { loginstatus == false ?
                             <NavBtnLink to='/login'>Sign In</NavBtnLink> :
                             <div style={{ display: 'flex', flexDirection: 'row'}}>
-                                <p style={{ margin: 10, color: 'white'}}>Halo, {username}!</p>
+                                <p style={{ margin: 10, color: 'white'}}>Halo, <bold>{username}</bold>!</p>
                                 <Button><button onClick={signOut} style={{ background: 'none', padding: 0, border: 'none' }}>Sign Out</button></Button>
                             </div>
                         }
                     </NavBtn>
-                </NavbarContainer>
+                </NavbarContainer>,
             </Nav>
         </div>
     )
