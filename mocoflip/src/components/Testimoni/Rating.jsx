@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
-import { Container, Radio, Rating } from "../style/ratingstyle";
+import { Container, Radio, Rating } from "../../style/ratingstyle";
 const Rate = () => {
 const [rate, setRate] = useState(0);
 

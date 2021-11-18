@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import { Title, Testi } from "../style/testimonipagestyle";
-import logo from "../images/MocoFLip.png"
+import { Title, Testi } from "../../style/testimonipagestyle";
+import logo from "../../images/logo.png";
 import { Form, Button, Card} from "react-bootstrap";
 
  const FormTesti=({ addTestimoni })=>{

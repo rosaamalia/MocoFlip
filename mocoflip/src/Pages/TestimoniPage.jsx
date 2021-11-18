@@ -1,7 +1,7 @@
 import React from "react";
 // import FormTestimoni from "../components/form-testimoni";
 import { Container} from "react-bootstrap";
-import TestimoniNew from "../components/testimoninew";
+import TestimoniNew from "../components/Testimoni/TestimoniNew";
 
 
 function TestimoniPage() {

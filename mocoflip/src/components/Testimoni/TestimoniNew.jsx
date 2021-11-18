@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { Card, Container, Row ,Col} from "react-bootstrap";
-import Rating from "./rating"
-import FormTesti from "./formtesti";
+import Rating from "./Rating";
+import FormTesti from "./FormTesti";
 
  const TestimoniNew=()=>{
     const [testimonis, setTestimonis] = useState([
