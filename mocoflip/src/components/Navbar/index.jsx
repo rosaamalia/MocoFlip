@@ -70,9 +70,9 @@ const Navbar = ({ toggle }) => {
                         <NavItem>
                             { loginstatus == true ? <NavLinks><Link to="/search" style={{ textDecoration: 'none', color: 'white' }}>Search</Link></NavLinks> : null}
                         </NavItem>
-                        <NavItem>
+                        {/* <NavItem>
                             { loginstatus == true ? <NavLinks><Link to="/viewer" style={{ textDecoration: 'none', color: 'white' }}>Viewer</Link></NavLinks> : null}
-                        </NavItem>
+                        </NavItem> */}
                         <NavItem>
                             { loginstatus == false ? <NavLinks><Link to="/signup" style={{ textDecoration: 'none', color: 'white' }}>Sign Up</Link></NavLinks> : null}
                         </NavItem>
