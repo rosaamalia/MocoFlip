@@ -12,7 +12,7 @@ function BookListPage() {
     const [astronomyBooks, setAstronomyBooks] = useState([]);
     
     useEffect(() => {
-       fetch('https://books.googleapis.com/books/v1/volumes?q=education&filter=free-ebooks')
+       fetch('https://books.googleapis.com/books/v1/volumes?q=education')
         .then(res => {
             return res.json();
         })
@@ -23,7 +23,7 @@ function BookListPage() {
     }, []);
 
     useEffect(() => {
-        fetch('https://books.googleapis.com/books/v1/volumes?q=science&filter=free-ebooks')
+        fetch('https://books.googleapis.com/books/v1/volumes?q=science')
          .then(res => {
              return res.json();
          })
@@ -34,7 +34,7 @@ function BookListPage() {
      }, []);
     
      useEffect(() => {
-        fetch('https://books.googleapis.com/books/v1/volumes?q=technology&filter=free-ebooks')
+        fetch('https://books.googleapis.com/books/v1/volumes?q=technology')
          .then(res => {
              return res.json();
          })
@@ -45,7 +45,7 @@ function BookListPage() {
      }, []);
 
      useEffect(() => {
-        fetch('https://books.googleapis.com/books/v1/volumes?q=astronomy&filter=free-ebooks')
+        fetch('https://books.googleapis.com/books/v1/volumes?q=astronomy')
          .then(res => {
              return res.json();
          })

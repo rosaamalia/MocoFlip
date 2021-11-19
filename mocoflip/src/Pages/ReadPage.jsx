@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import {Button, Col, Container, Form, Row, Card, CardImg} from "react-bootstrap";
+import BookViewer from "../components/BookViewer/BookViewer";
 
-function LoginPage() {
-    let url = "http://play.google.com/books/reader?id=DZ7cZags_xwC&hl=&as_brr=7&printsec=frontcover&source=gbs_api";
+function LoginPage(props) {
     return (
         <div className="d-flex align-items-center min-vh-100" style ={{ backgroundColor: '#1B232E'}}>
         <Container fluid>
-            <iframe src={url} title="Iframe Example" style={{ height: 500}}></iframe>
+            <BookViewer bookItem={props.bookItem}></BookViewer>
         </Container>  
         </div>
     );
