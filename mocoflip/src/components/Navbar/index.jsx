@@ -44,13 +44,39 @@ const Navbar = ({ toggle }) => {
                     </MobileIcon>
                     <NavMenu>
                         <NavItem>
+<<<<<<< HEAD
+=======
+                            {/* <SearchBar className="d-flex justify-content-center">
+                                <form action='/' method='get'>
+                                    <label htmlFor='header-search'>
+                                        <span className="visually-hidden align-items-center">Search Flip Books</span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="header-search"
+                                        placeholder="Search Flip Books"
+                                        name="s"
+                                        style={{ paddingInline: 15, paddingBlock: 5, borderRadius: 5}}
+                                    />
+                                </form>
+                                {' '}
+                            </SearchBar> */}
+                        </NavItem>
+                        <NavItem>
+>>>>>>> e800b664ef6291871d7532c84f87034793d7d0b1
                             <NavLinks><Link to="/" style={{ textDecoration: 'none', color: 'white' }}>Home</Link></NavLinks>
                         </NavItem>
                         <NavItem>
-                            { loginstatus == true ? <NavLinks><Link to="/list" style={{ textDecoration: 'none', color: 'white' }}>Demo</Link></NavLinks> : null}
+                            { loginstatus == true ? <NavLinks><Link to="/list" style={{ textDecoration: 'none', color: 'white' }}>Book List</Link></NavLinks> : null}
                         </NavItem>
                         <NavItem>
                             <NavLinks><Link to="/testimoni" style={{ textDecoration: 'none', color: 'white' }}>Testimoni</Link></NavLinks>
+                        </NavItem>
+                        <NavItem>
+                            { loginstatus == true ? <NavLinks><Link to="/search" style={{ textDecoration: 'none', color: 'white' }}>Search</Link></NavLinks> : null}
+                        </NavItem>
+                        <NavItem>
+                            { loginstatus == true ? <NavLinks><Link to="/viewer" style={{ textDecoration: 'none', color: 'white' }}>Viewer</Link></NavLinks> : null}
                         </NavItem>
                         <NavItem>
                             { loginstatus == false ? <NavLinks><Link to="/signup" style={{ textDecoration: 'none', color: 'white' }}>Sign Up</Link></NavLinks> : null}

@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {Col, Container, Card, Button,  Modal, Row} from "react-bootstrap";
+import {Link} from "react-router-dom";
 import styled from "styled-components"
 
 export const Text = styled.p`
@@ -55,7 +56,7 @@ export function BookCard(props){
                             <Text style={{ fontSize: 18, fontWeight: 600, margin: 0 }}>{props.title}</Text>
                             <Text style={{ fontSize: 14 }}>Author: {props.authors ? props.authors.join(", ") : null} &nbsp;•&nbsp; Published Date: {props.publish}</Text>
                             <Text style={{ fontSize: 14 }}>{props.description ? props.description : props.subtitle}</Text>
-                            {props.web ? <ButtonDetail>Read Book</ButtonDetail> : null}
+                            {props.web ? <Link to={"/read/"+props.id}><ButtonDetail>Read Book</ButtonDetail></Link> : null}
                         </Col>
                     </Row>
                 </Modal.Body>

@@ -11,6 +11,9 @@ import BookListPage from "../Pages/BookListPage";
 import BookmarkPage from "../Pages/BookmarkPage";
 import TestimoniPage from "../Pages/TestimoniPage";
 import SearchPage from "../Pages/SearchPage";
+import ReadPage from "../Pages/ReadPage";
+
+import Viewer from "../components/BookViewer/Viewer";
 
 function MainRouter(){
     const [isOpen, setIsOpen] = useState(false)
@@ -28,6 +31,8 @@ function MainRouter(){
                 <Route path="/login" component={LoginPage} exact/>
                 <Route path="/signup" component={SignUpPage} exact/>
                 <Route path="/list" component={BookListPage} exact/>
+                <Route path="/read/:bookId" component={ReadPage} exact/>
+                <Route path="/viewer" component={Viewer} exact/>
                 <Route path="/bookmark" component={BookmarkPage} exact/>
                 <Route path="/testimoni" component={TestimoniPage} exact/>
                 <Route path="/search" component={SearchPage} exact/>
