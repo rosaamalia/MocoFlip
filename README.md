@@ -24,5 +24,5 @@ MocoFlip adalah website yang menyediakan buku-buku berasal dari API Google Books
 - Register & Login
 
 ## Link
-BRD: https://whimsical.com/brd-mocoflip-project-2-LEpp5HWjaj8qqhpdG3yEeZ <br>
+PPT: [PPT Demo](https://docs.google.com/presentation/d/1p3nfbybl9hsXnZO-PmLzzVEd7dwH90Oef9txZsiRy7Y/edit#slide=id.gf0782e7c3a_0_472)<br>
 Aplikasi: https://mocoflip.netlify.app
