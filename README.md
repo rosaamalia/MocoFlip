@@ -9,6 +9,7 @@ Kelompok 22 - Serrum
 Clone repositori dan gunakan command di bawah untuk menjalankan aplikasi.
 ```
 cd mocoflip
+npm install
 npm start
 ```
 
