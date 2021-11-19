@@ -2,10 +2,9 @@ import React, {useEffect, useState, useRef} from 'react';
 import styled from 'styled-components';
 
 const ViewerCanvas = styled.div`
-    margin: auto; 
+    margin-left: 100px; 
     width: 400px;  
     height: 600px;
-    color: white;
 `;
 
 function BookViewer(props) { 
@@ -32,14 +31,14 @@ function BookViewer(props) {
              if(window.viewer){            
                 let viewer = new window.google.books.DefaultViewer(canvasRef.current); 
                 //pake id
-                viewer.load(props.bookId, alertNotFound);                    
+                viewer.load('-KgWAAAAIAAJ', alertNotFound);                    
               }        
               else{          
                 window.google.books.load()                             
                 window.google.books.setOnLoadCallback(() => {                 
                 let viewer = new window.google.books.DefaultViewer(canvasRef.current);         
                 window.viewer = viewer;         
-                viewer.load(props.bookId, alertNotFound);        
+                viewer.load('-KgWAAAAIAAJ', alertNotFound);        
               })
             }              
         }}, [loaded])      
