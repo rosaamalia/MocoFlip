@@ -44,7 +44,6 @@ function SignUpPage() {
                 }
     
                 window.alert('Pendaftaran berhasil! Silahkan Log In dengan akun yang sudah didaftarkan.');
-                window.location='/login';
             }
         }
 

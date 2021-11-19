@@ -82,9 +82,9 @@ function HomePage() {
                 <div className="row-cols-1 m-5">
                     <h5 className="text-center mb-3"> Suka dengan FLipBook? Kasih testimoni kamu disini yuk ! </h5>
                     <div className="button-testimoni mb-5">
-                        <a href="/testimoni">
+                        <Link to="/testimoni">
                         <button type="button" className="btn btn-primary" style={{ backgroundColor: '#362565', borderStyle: 'none'}}>Tulis Testimoni</button>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>
