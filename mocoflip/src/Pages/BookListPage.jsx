@@ -54,10 +54,10 @@ function BookListPage(){
                 {
                     bookList.length != 0 ?
                     bookList.map((book, id) => {
-                        return <BookCard key={id} title={book.volumeInfo.title} image={book.volumeInfo.imageLinks.smallThumbnail} authors={book.volumeInfo.authors} description={book.volumeInfo.description} subtitle={book.volumeInfo.subtitle} web={book.accessInfo.webReaderLink} publish={book.volumeInfo.publishedDate} />
+                        return <BookCard key={id} title={book.volumeInfo.title} image={book.volumeInfo.imageLinks.smallThumbnail} authors={book.volumeInfo.authors} description={book.volumeInfo.description} subtitle={book.volumeInfo.subtitle} web={book.accessInfo.webReaderLink} publish={book.volumeInfo.publishedDate} id={book.id} />
                     }) :
                     books.map((book, id) => {
-                        return <BookCard key={id} title={book.volumeInfo.title} image={book.volumeInfo.imageLinks.smallThumbnail} authors={book.volumeInfo.authors} description={book.volumeInfo.description} subtitle={book.volumeInfo.subtitle} web={book.accessInfo.webReaderLink} publish={book.volumeInfo.publishedDate} />
+                        return <BookCard key={id} title={book.volumeInfo.title} image={book.volumeInfo.imageLinks.smallThumbnail} authors={book.volumeInfo.authors} description={book.volumeInfo.description} subtitle={book.volumeInfo.subtitle} web={book.accessInfo.webReaderLink} publish={book.volumeInfo.publishedDate} id={book.id} />
                     })
 
                 }
