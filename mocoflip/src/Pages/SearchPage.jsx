@@ -51,7 +51,7 @@ function GoogleBooksSearch() {
     }
 
     return (  
-        <div style={{ backgroundColor: '#1B232E' , height: '100%'}} >
+        <div className="min-vh-100" style={{ backgroundColor: '#1B232E' }} >
         <form onSubmit={handleSubmit}>
             <div class="container fluid">  
             <div className="card-header main-search">  

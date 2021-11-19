@@ -44,8 +44,6 @@ const Navbar = ({ toggle }) => {
                     </MobileIcon>
                     <NavMenu>
                         <NavItem>
-<<<<<<< HEAD
-=======
                             {/* <SearchBar className="d-flex justify-content-center">
                                 <form action='/' method='get'>
                                     <label htmlFor='header-search'>
@@ -63,7 +61,6 @@ const Navbar = ({ toggle }) => {
                             </SearchBar> */}
                         </NavItem>
                         <NavItem>
->>>>>>> e800b664ef6291871d7532c84f87034793d7d0b1
                             <NavLinks><Link to="/" style={{ textDecoration: 'none', color: 'white' }}>Home</Link></NavLinks>
                         </NavItem>
                         <NavItem>
@@ -75,9 +72,9 @@ const Navbar = ({ toggle }) => {
                         <NavItem>
                             { loginstatus == true ? <NavLinks><Link to="/search" style={{ textDecoration: 'none', color: 'white' }}>Search</Link></NavLinks> : null}
                         </NavItem>
-                        <NavItem>
+                        {/* <NavItem>
                             { loginstatus == true ? <NavLinks><Link to="/viewer" style={{ textDecoration: 'none', color: 'white' }}>Viewer</Link></NavLinks> : null}
-                        </NavItem>
+                        </NavItem> */}
                         <NavItem>
                             { loginstatus == false ? <NavLinks><Link to="/signup" style={{ textDecoration: 'none', color: 'white' }}>Sign Up</Link></NavLinks> : null}
                         </NavItem>
