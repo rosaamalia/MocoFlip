@@ -68,7 +68,10 @@ const Navbar = ({ toggle }) => {
                             <NavLinks><Link to="/testimoni" style={{ textDecoration: 'none', color: 'white' }}>Testimoni</Link></NavLinks>
                         </NavItem>
                         <NavItem>
-                            <NavLinks><Link to="/search" style={{ textDecoration: 'none', color: 'white' }}>Search</Link></NavLinks>
+                            { loginstatus == true ? <NavLinks><Link to="/search" style={{ textDecoration: 'none', color: 'white' }}>Search</Link></NavLinks> : null}
+                        </NavItem>
+                        <NavItem>
+                            { loginstatus == true ? <NavLinks><Link to="/viewer" style={{ textDecoration: 'none', color: 'white' }}>Viewer</Link></NavLinks> : null}
                         </NavItem>
                         <NavItem>
                             { loginstatus == false ? <NavLinks><Link to="/signup" style={{ textDecoration: 'none', color: 'white' }}>Sign Up</Link></NavLinks> : null}
