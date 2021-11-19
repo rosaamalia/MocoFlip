@@ -3,19 +3,31 @@ import { BookCard } from "../components/BookCard"
 import { BooksListContext } from "../context/listbooks-context";
 import FilterCategory from "../components/FilterCategory"
 import  { Container, Row, Dropdown}  from "react-bootstrap"
-import { BookShow } from "../components/BookShow";
+// import { BookShow } from "../components/BookShow";
+import BlockLoading from '../components/Loading/BlockLoading';
 import { propTypes } from "react-bootstrap/esm/Image";
 
 
 
 function BookListPage(){
     const {books, science, technology, astronomy, loading, error} = useContext(BooksListContext)
+    const [bookList, setBookList] = useState([]);
+    // setBookList(books);
+    // console.log(bookList);
 
     if(loading){
-        return <h1>Loading...</h1>
+        return (
+            <Container fluid className="d-flex flex-wrap justify-content-center min-vh-100" style={{ backgroundColor: '#1B232E', alignItems: 'center' }}>
+                <BlockLoading/>
+            </Container>
+        )
     }
     if(error != null){
-        return <h1>System Error</h1> 
+        return (
+            <Container fluid className="d-flex flex-wrap justify-content-center min-vh-100" style={{ backgroundColor: '#1B232E', alignItems: 'center' }}>
+                <p>Error</p>
+            </Container>
+        )
     }
     const onClickHandler = () => {
         books();
@@ -32,19 +44,22 @@ function BookListPage(){
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu variant="dark">
-                            <Dropdown.Item onClick={() => {onClickHandler(science)}} value="Science">Science</Dropdown.Item>
-                            <Dropdown.Item onClick={() => {onClickHandler(technology)}} value="Technology">Technology</Dropdown.Item>
-                            <Dropdown.Item onClick={() => {onClickHandler(astronomy)}} value="Astronomy">Astronomy</Dropdown.Item>
+                            <Dropdown.Item onClick={() => {setBookList(science)}} value="Science">Science</Dropdown.Item>
+                            <Dropdown.Item onClick={() => {setBookList(technology)}} value="Technology">Technology</Dropdown.Item>
+                            <Dropdown.Item onClick={() => {setBookList(astronomy)}} value="Astronomy">Astronomy</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                 </Row>
                 <Row className="justify-content-center gap-5 p-0">
                 {
-                    Array.isArray(books) &&
+                    bookList.length != 0 ?
+                    bookList.map((book, id) => {
+                        return <BookCard key={id} title={book.volumeInfo.title} image={book.volumeInfo.imageLinks.smallThumbnail} authors={book.volumeInfo.authors} description={book.volumeInfo.description} subtitle={book.volumeInfo.subtitle} web={book.accessInfo.webReaderLink} publish={book.volumeInfo.publishedDate} />
+                    }) :
                     books.map((book, id) => {
-                    return <BookCard key={id} title={book.volumeInfo.title} image={book.volumeInfo.imageLinks.smallThumbnail} authors={book.volumeInfo.authors} description={book.volumeInfo.description} subtitle={book.volumeInfo.subtitle} web={book.accessInfo.webReaderLink} publish={book.volumeInfo.publishedDate} />
-                    }) 
-           
+                        return <BookCard key={id} title={book.volumeInfo.title} image={book.volumeInfo.imageLinks.smallThumbnail} authors={book.volumeInfo.authors} description={book.volumeInfo.description} subtitle={book.volumeInfo.subtitle} web={book.accessInfo.webReaderLink} publish={book.volumeInfo.publishedDate} />
+                    })
+
                 }
                 </Row>
             </Container>   
