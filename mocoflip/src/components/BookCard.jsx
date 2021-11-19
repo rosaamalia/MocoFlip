@@ -38,7 +38,7 @@ export function BookCard(props){
                     <img src={props.image} style={{ width: 170, height: 230, objectFit: 'cover' }}></img>
                     <Col style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
                         <Text style={{ fontSize: 18, fontWeight: 600 }}>{props.title}</Text>
-                        <Text style={{ fontSize: 14 }}>{props.authors}</Text>
+                        <Text style={{ fontSize: 14 }}>{props.authors ? props.authors.join(", ") : null}</Text>
                         <ButtonDetail onClick={handleShow}>Detail</ButtonDetail>
                     </Col>
                 </Row>
@@ -53,7 +53,7 @@ export function BookCard(props){
                         <img src={props.image} style={{ width: 170, height: 230, objectFit: 'cover' }}></img>
                         <Col>
                             <Text style={{ fontSize: 18, fontWeight: 600, margin: 0 }}>{props.title}</Text>
-                            <Text style={{ fontSize: 14 }}>Author: {props.authors} &nbsp;•&nbsp; Published Date: {props.publish}</Text>
+                            <Text style={{ fontSize: 14 }}>Author: {props.authors ? props.authors.join(", ") : null} &nbsp;•&nbsp; Published Date: {props.publish}</Text>
                             <Text style={{ fontSize: 14 }}>{props.description ? props.description : props.subtitle}</Text>
                             {props.web ? <ButtonDetail>Read Book</ButtonDetail> : null}
                         </Col>

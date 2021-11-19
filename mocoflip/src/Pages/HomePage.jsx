@@ -18,6 +18,11 @@ import {CardGroup,
 
 
 function HomePage() {
+    // default login status
+    if(!localStorage.getItem("loginstatus")){
+        localStorage.setItem("loginstatus", JSON.stringify({'status': false, 'id': NaN}));
+    }
+    
     return (
         <div className="container-fluid">
             {/* Jumbotron */}
