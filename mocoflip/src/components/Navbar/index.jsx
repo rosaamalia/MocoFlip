@@ -62,7 +62,7 @@ const Navbar = ({ toggle }) => {
                             <NavLinks><Link to="/" style={{ textDecoration: 'none', color: 'white' }}>Home</Link></NavLinks>
                         </NavItem>
                         <NavItem>
-                            { loginstatus == true ? <NavLinks><Link to="/list" style={{ textDecoration: 'none', color: 'white' }}>Demo</Link></NavLinks> : null}
+                            { loginstatus == true ? <NavLinks><Link to="/list" style={{ textDecoration: 'none', color: 'white' }}>Book List</Link></NavLinks> : null}
                         </NavItem>
                         <NavItem>
                             <NavLinks><Link to="/testimoni" style={{ textDecoration: 'none', color: 'white' }}>Testimoni</Link></NavLinks>
