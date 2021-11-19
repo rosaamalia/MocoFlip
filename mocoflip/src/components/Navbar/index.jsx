@@ -14,6 +14,7 @@ import {Nav,
         } from './NavbarElements';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png';
+import SearchPage from "../../Pages/SearchPage";
 
 const Navbar = ({ toggle }) => {
     let loginstatus = JSON.parse(localStorage.getItem("loginstatus")).status;
@@ -30,6 +31,7 @@ const Navbar = ({ toggle }) => {
     }
 
     return (
+        <React.Fragment>
         <div style={{ marginBottom: 70}}>
             <Nav>
                 <NavbarContainer>
@@ -42,6 +44,8 @@ const Navbar = ({ toggle }) => {
                     </MobileIcon>
                     <NavMenu>
                         <NavItem>
+<<<<<<< HEAD
+=======
                             {/* <SearchBar className="d-flex justify-content-center">
                                 <form action='/' method='get'>
                                     <label htmlFor='header-search'>
@@ -59,6 +63,7 @@ const Navbar = ({ toggle }) => {
                             </SearchBar> */}
                         </NavItem>
                         <NavItem>
+>>>>>>> e800b664ef6291871d7532c84f87034793d7d0b1
                             <NavLinks><Link to="/" style={{ textDecoration: 'none', color: 'white' }}>Home</Link></NavLinks>
                         </NavItem>
                         <NavItem>
@@ -89,6 +94,7 @@ const Navbar = ({ toggle }) => {
                 </NavbarContainer>,
             </Nav>
         </div>
+        </React.Fragment>
     )
 };
 
