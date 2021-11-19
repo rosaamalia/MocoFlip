@@ -43,7 +43,7 @@ function LoginPage() {
                         <Col className="d-sm-none d-md-inline d-none col-md-6">
                             <CardImg className="img-fluid rounded-start"
                                     style={{ height: 500, innerWidth: '50vw', objectFit: 'cover', paddingLeft: 30 }}
-                                    src="https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Ym9vayUyMHB1cnBsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1000&q=60">
+                                    src="https://images.unsplash.com/photo-1536965764833-5971e0abed7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80">
                             </CardImg>
                         </Col>
                         <Col className="col-md-6 d-flex align-items-center px-5">

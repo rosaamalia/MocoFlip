@@ -1,20 +1,11 @@
-
-// import LogoImg from '../images/MocoFLip_adobespark.png';
-// import NavbarComp from "../components/NavbarComp";
-// import { Container } from "react-bootstrap";
-// import background from "../images/bgHomePage.png";
 import React from "react";
-// import HeroSection from "../components/HeroSection";
 import './css/style.css';
 import background from "../images/bgHomePage.png";
 import {CardGroup, 
         Card, 
         CardImg, 
-        // CardBody, 
-        // CardTitle,
-        // ListGroup,
-        // ListGroupItem,
 } from "reactstrap";
+import { Link } from 'react-router-dom';
 
 
 function HomePage() {
@@ -22,27 +13,29 @@ function HomePage() {
     if(!localStorage.getItem("loginstatus")){
         localStorage.setItem("loginstatus", JSON.stringify({'status': false, 'id': NaN}));
     }
+    let loginstatus = JSON.parse(localStorage.getItem("loginstatus")).status;
     
     return (
         <div className="container-fluid">
             {/* Jumbotron */}
             <div className="row">
-                <div className="jumbotron text-white jumbotron-image shadow p-5" style={{ backgroundImage: `url(${background})`, height: '100vh' }}>
+                <div className="jumbotron text-white jumbotron-image shadow p-5" style={{ backgroundImage: `url("https://images.unsplash.com/photo-1599488059863-ac95a7f49193?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80")`, height: '100vh' }}>
                     <div className="area-content-jumbotron d-flex flex-column">
-                        <h1 className="mb-2">
-                            Convert PDF Files to FlipBooks
+                        <h1 className="mb-2" style={{ fontWeight: 600 }}>
+                            MocoFlip
                         </h1>
-                        <p className="mb-4 badge text-wrap">
-                        Enhance your audience experience by adding a realistic page flip effect to your PDF documents!
+                        <p className="mb-4 text-wrap">
+                        Books give us new knowledge and strength.
                         </p>
-                        <a href="footer.jsx" className="btn btn-success" style={{backgroundColor: '#362565', borderColor: '#543474'}}>Get FLip</a>
+                        {loginstatus ? <Link to="/list" className="btn btn-succedd" style={{backgroundColor: '#362565', borderColor: '#543474', color:'white'}}>Read Book</Link>
+                        : <Link to="/login" className="btn btn-succedd" style={{backgroundColor: '#362565', borderColor: '#543474', color:'white'}}>Login to read your favorite books!</Link>}
                     </div>
                 </div>
             </div>
 
             {/* Section Card */}
             <div className="row" style={{ marginTop: 50 }}>
-                <h2 className="text-center my-4"> FLipBook Samples </h2>
+                <h2 className="text-center my-4" style={{ fontWeight: 600 }}>Our Books</h2>
                 <CardGroup className="mb-5" style={{ width: '100rem' }}>
                     <Card className="m-2" style={{objectFit: "cover"}}>
                         <CardImg
@@ -51,11 +44,7 @@ function HomePage() {
                         top
                         width="100%"
                         />
-                        {/* <CardBody>
-                        <CardTitle tag="h5">
-                            Card title
-                        </CardTitle>
-                        </CardBody> */}
+
                     </Card>
                     <Card className="m-2">
                         <CardImg
@@ -64,11 +53,6 @@ function HomePage() {
                         top
                         width="100%"
                         />
-                        {/* <CardBody>
-                        <CardTitle tag="h5">
-                            Card title
-                        </CardTitle>
-                        </CardBody> */}
                     </Card>
                     <Card className="m-2">
                         <CardImg
@@ -77,11 +61,6 @@ function HomePage() {
                         top
                         width="100%"
                         />
-                        {/* <CardBody>
-                        <CardTitle tag="h5">
-                            Card title
-                        </CardTitle>
-                        </CardBody> */}
                     </Card>
                     <Card className="m-2">
                         <CardImg
@@ -90,11 +69,6 @@ function HomePage() {
                         top
                         width="100%"
                         />
-                        {/* <CardBody>
-                        <CardTitle tag="h5">
-                            Card title
-                        </CardTitle>
-                        </CardBody> */}
                     </Card>
                     <Card className="m-2">
                         <CardImg
@@ -103,11 +77,6 @@ function HomePage() {
                         top
                         width="100%"
                         />
-                        {/* <CardBody>
-                        <CardTitle tag="h5">
-                            Card title
-                        </CardTitle>
-                        </CardBody> */}
                     </Card>
                 </CardGroup>
                 <div className="row-cols-1 m-5">
