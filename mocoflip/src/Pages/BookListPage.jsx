@@ -5,7 +5,6 @@ import FilterCategory from "../components/FilterCategory"
 import  { Container, Row, Dropdown}  from "react-bootstrap"
 // import { BookShow } from "../components/BookShow";
 import BlockLoading from '../components/Loading/BlockLoading';
-import { propTypes } from "react-bootstrap/esm/Image";
 
 
 
@@ -28,9 +27,6 @@ function BookListPage(){
                 <p>Error</p>
             </Container>
         )
-    }
-    const onClickHandler = () => {
-        books();
     }
 
     return <React.Fragment>

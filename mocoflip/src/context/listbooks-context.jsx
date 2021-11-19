@@ -103,7 +103,6 @@ export function BookListProvider(props) {
         error: error
         
     }
-    console.log(value)
 
     return <BooksListContext.Provider value={value}>
         {props.children}
